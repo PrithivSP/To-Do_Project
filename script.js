@@ -9,6 +9,7 @@ toDoBtn.addEventListener('click', addToDo);
 
 // Functions
 
+
 function addToDo(event) {
     
     event.preventDefault();
@@ -29,11 +30,24 @@ function addToDo(event) {
    CompletedBtn.classList.add('complete-Btn');
    toDoDiv.appendChild(CompletedBtn);
 
+   CompletedBtn.addEventListener('click', CompletedTask);
+
+   function CompletedTask (event) {
+    toDoDiv.style['backgroundColor'] = "#21E758";
+    newToDo.style['textDecoration'] = 'line-through';
+   }
+
    //! Delete Button
    const DeleteBtn = document.createElement('button');
    DeleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
    DeleteBtn.classList.add('Delete-Btn');
    toDoDiv.appendChild(DeleteBtn);
+
+   DeleteBtn.addEventListener('click', DeletingTask);
+
+   function DeletingTask (event) {
+    toDoDiv.remove();
+   }
 
    //! Append to List container
    toDoList.appendChild(toDoDiv);
